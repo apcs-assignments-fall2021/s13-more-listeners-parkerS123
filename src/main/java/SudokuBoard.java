@@ -16,22 +16,29 @@ public class SudokuBoard {
 
         // 3. Create components and put them in the frame
         // Create an array of 9 JPanels, representing each row
-        rows = new JPanel[9];
+        rows = new JPanel[3];
 
         // Create a 2D array of JButtons, representing each button
-        buttons = new SudokuButton[9][9];
+        buttons = new SudokuButton[3][3];
 
         // Here is the code that we can use to make one row of 5 buttons:
-        JPanel rowPanel = new JPanel();
 
-        for (int col = 0; col < 5; col++) {
-            SudokuButton currentButton = new SudokuButton();
-            rowPanel.add(currentButton);
-            buttons[0][col] = currentButton;
+        for (int row = 0; row < 3; row++) {
+
+            JPanel rowPanel = new JPanel();
+
+            for (int col = 0; col < 3; col++) {
+
+                SudokuButton currentButton = new SudokuButton();
+                rowPanel.add(currentButton);
+                buttons[row][col] = currentButton;
+
+            }
+
+            rows[0] = rowPanel;
+            frame.add(rowPanel);
         }
 
-        rows[0] = rowPanel;
-        frame.add(rowPanel);
 
         // 4. Size the frame
         frame.pack();

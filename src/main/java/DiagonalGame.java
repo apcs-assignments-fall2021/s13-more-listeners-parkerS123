@@ -36,6 +36,35 @@ public class DiagonalGame {
         panel1.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
+                int holdx = 0;
+                int holdy = 0;
+                int min = 500;
+                for (int diagonal = 0; diagonal < 500; diagonal++){
+                    if (Math.abs(diagonal - e.getX()) + Math.abs(diagonal - e.getY()) < min){
+                        holdx = e.getX();
+                        holdy = e.getY();
+                        min = Math.abs(diagonal - e.getX()) + Math.abs(diagonal - e.getY());
+                    }
+                }
+                if (min > 20){
+                    field1.setText("You're trash");
+                }
+                if (min < 20){
+                    field1.setText("okay");
+                }
+                if (min < 20){
+                    field1.setText("good");
+                }
+                if (min < 5){
+                    field1.setText("great");
+                }
+                if (min < 3){
+                    field1.setText("wow!");
+                }
+                if (min == 1){
+                    field1.setText("Perfect!!!!");
+                }
+
 
             }
 
